@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   try {
-    
-
     const products = await Product.find({});
     return NextResponse.json({ success: true, products });
   } catch (error) {
