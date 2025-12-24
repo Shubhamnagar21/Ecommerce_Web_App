@@ -1,3 +1,4 @@
+import stripe_logo from './stripe_logo.png'
 import logo from "./logo.svg";
 import search_icon from "./search_icon.svg";
 import user_icon from "./user_icon.svg";
@@ -95,7 +96,8 @@ export const assets = {
   product_details_page_apple_earphone_image3,
   product_details_page_apple_earphone_image4,
   product_details_page_apple_earphone_image5,
-  checkmark
+  checkmark,
+  stripe_logo,
 };
 
 export const BagIcon = () => {
