@@ -1,7 +1,5 @@
 import connectDB from "@/config/db";
 import Order from "@/models/Order";
-import { connect } from "mongoose";
-import { tree } from "next/dist/build/templates/app-page";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -26,8 +24,8 @@ export async function POST(request) {
 
       await connectDB();
       if (isPaid) {
-        await Order.findByAndUpdate(orderId, { isPaid: true });
-        await Order.findByAndUpdate(userId, { cartItems: {} });
+        await Order.findByIdAndUpdate(orderId, { isPaid: true });
+        await User .findByIdAndUpdate(userId, { cartItems: {} });
       } else {
         await Order.findByIdAndDelete(orderId);
       }
