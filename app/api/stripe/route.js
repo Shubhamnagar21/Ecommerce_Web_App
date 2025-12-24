@@ -1,5 +1,8 @@
+export const runtime = "nodejs";
+
 import connectDB from "@/config/db";
 import Order from "@/models/Order";
+import User from "@/models/User";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -25,7 +28,7 @@ export async function POST(request) {
       await connectDB();
       if (isPaid) {
         await Order.findByIdAndUpdate(orderId, { isPaid: true });
-        await User .findByIdAndUpdate(userId, { cartItems: {} });
+        await User.findByIdAndUpdate(userId, { cartItems: {} });
       } else {
         await Order.findByIdAndDelete(orderId);
       }
